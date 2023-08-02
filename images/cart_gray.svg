@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11.298 11.298">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        fill: #95989a;
+      }
+
+      .cls-3 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="Group_273" data-name="Group 273" transform="translate(-80 -13)">
+    <g id="ic_card_travel_black_24px" transform="translate(80 13)">
+      <path id="Path_41" data-name="Path 41" class="cls-1" d="M0,0H11.3V11.3H0Z"/>
+      <path id="Path_42" data-name="Path 42" class="cls-2" d="M10.473,3.883H9.061V2.941A.938.938,0,0,0,8.12,2H5.3a.938.938,0,0,0-.941.941v.941H2.941A.938.938,0,0,0,2,4.824V10a.938.938,0,0,0,.941.941h7.532A.938.938,0,0,0,11.415,10V4.824A.938.938,0,0,0,10.473,3.883ZM5.3,2.941H8.12v.941H5.3ZM10.473,10H2.941V9.061h7.532Zm0-2.354H2.941V4.824H4.354v.941H5.3V4.824H8.12v.941h.941V4.824h1.412Z" transform="translate(-1.059 -0.588)"/>
+    </g>
+    <rect id="Rectangle_32" data-name="Rectangle 32" class="cls-3" width="7.532" height="3.295" transform="translate(81.883 19.12)"/>
+  </g>
+</svg>

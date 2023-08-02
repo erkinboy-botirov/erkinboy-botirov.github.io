@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>Shape</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Profile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Profile---NO-IMAGE" transform="translate(-167.000000, -358.000000)" fill="#B0B0B0" fill-rule="nonzero">
+            <path d="M172.354728,372.877706 L172.819598,372.412837 L168.587163,368.180402 L178.110141,358.657424 C178.986707,357.780859 180.407901,357.780859 181.284467,358.657424 L182.342576,359.715533 C183.219141,360.592099 183.219141,362.013293 182.342576,362.889859 L172.354728,372.877706 Z M171.756293,373.46575 C171.352018,373.809366 170.837184,374 170.302696,374 L167.374098,374 C167.167489,374 167,373.832511 167,373.625902 L167,370.697304 C167,370.162816 167.190635,369.647982 167.53425,369.243707 L171.756293,373.46575 Z" id="Shape"></path>
+        </g>
+    </g>
+</svg>

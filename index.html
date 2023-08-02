@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+    <title>Mada</title>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, viewport-fit=cover" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' gap://ready file://* cdvfile://* * themadaapp://; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://js.stripe.com http://connect.facebook.net https://connect.facebook.net; font-src 'self' data: https://fonts.googleapis.com https://fonts.gstatic.com;">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="dist/app.styles.css">
+</head>
+<body>
+<div class="vue-mount">
+    <main-header></main-header>
+    <sub-menu></sub-menu>
+    <div class="allow-scrolling-wrapper" id="main-wrapper">
+        <transition name="page-fade" mode="out-in">
+            <router-view :key="$route.path"></router-view>
+        </transition>
+    </div>
+    <main-footer></main-footer>
+    <share-outfit-container></share-outfit-container>
+    <share-cart></share-cart>
+    <errors></errors>
+    <notifications></notifications>
+</div>
+
+<script src="cordova.js"></script>
+<script>
+    function handleOpenURL(url) {
+        this.setTimeout(function() {
+            const currentHref = window.location.href;
+            const newHref = 'ionic://localhost#' + url.slice(12);
+            window.location.href = newHref;
+        }, 0);
+    }
+</script>
+<script>
+    (function () {
+        const init = function () {
+            if(typeof window.FirebasePlugin !== 'undefined') {
+                window.FirebasePlugin.grantPermission();
+            }
+
+            if(typeof window.FirebasePlugin !== 'undefined') {
+                const firebaseSetScreenName = window.FirebasePlugin.setScreenName.bind({});
+                window.FirebasePlugin.setScreenName = (name, success, error) => {
+                    window.currentFirebaseScreenName = name;
+                    firebaseSetScreenName(name, success, error);
+                }
+            }
+
+            var screenName = window.location.href.replace(/ionic|localhost|:|\/{2}|[#\?](?!\/).*|#/ig, '').replace('-', ' ').trim();
+            screenName = screenName === '/' || !screenName ? 'home' : screenName;
+
+            try{
+                window.addEventListener('keyboardWillShow', e => {
+                    document.body.classList.add('keyboard-opened');
+                });
+
+                window.addEventListener('keyboardWillHide', e => {
+                    setTimeout(() => {
+                        document.body.classList.remove('keyboard-opened');
+                    }, 100);
+                });
+
+                if(typeof window.Keyboard.hideFormAccessoryBar !== 'undefined') {
+                    window.Keyboard.hideFormAccessoryBar(false);
+                }
+
+                if(typeof window.Keyboard.setResizeMode !== 'undefined') {
+                    window.Keyboard.setResizeMode('native');
+                }
+            } catch(err) {
+                if(typeof window.FirebasePlugin !== 'undefined') {
+                    window.FirebasePlugin.trackEvent('init_err', { error: err, firebase_screen_name: screenName  });
+                }
+                if(typeof window.facebookConnectPlugin !== 'undefined') {
+                    window.facebookConnectPlugin.logEvent('init_err', { error: err });
+                }
+            } finally {
+                window.navigator.splashscreen.hide();
+                if(typeof window.FirebasePlugin !== 'undefined') {
+                    window.FirebasePlugin.setScreenName(screenName);
+                    window.FirebasePlugin.logEvent('init_succeed', { firebase_screen_name: screenName });
+                }
+                if(typeof window.facebookConnectPlugin !== 'undefined') {
+                    window.facebookConnectPlugin.logEvent('init_succeed', {});
+                }
+            }
+        }
+
+        document.addEventListener('deviceready', init);
+    })();
+</script>
+<script async src="dist/app.bundle.js"></script>
+<script async src="https://js.stripe.com/v3/"></script>
+</body>
+</html>

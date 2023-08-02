@@ -1,0 +1,30 @@
+.profile-image {
+  background: #fafafa;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 100; }
+  .profile-image .image-container {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 50vh;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0; }
+    .profile-image .image-container img {
+      height: auto;
+      left: 0;
+      max-width: 100%;
+      position: absolute;
+      top: 0; }
+      .profile-image .image-container img.default {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); }
+
+
+/*# sourceMappingURL=10.styles.css.map*/
